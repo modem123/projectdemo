@@ -4,19 +4,21 @@
   <test thread-count="5" name="ChromeTest">
 	<parameter name="bname" value="Chrome"></parameter>
     <classes>
-      <class name="seleniumGrid.ParallelTest"/>
+      <class name="seleniumGrid.NewTest"/>
     </classes>
   </test> <!-- Test -->
    <test thread-count="5" name="FirefoxTest">
 	<parameter name="bname" value="Firefox"></parameter>
     <classes>
-      <class name="seleniumGrid.ParallelTest"/>
+      <class name="seleniumGrid.NewTest"/>
     </classes>
   </test> <!-- Test -->
    <test thread-count="5" name="EdgeTest">
 	<parameter name="bname" value="Edge"></parameter>
     <classes>
-      <class name="seleniumGrid.ParallelTest"/>
+      <class name="seleniumGrid.NewTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
+
+
