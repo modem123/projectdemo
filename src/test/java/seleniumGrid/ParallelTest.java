@@ -2,50 +2,30 @@ package seleniumGrid;
 
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-
-
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-//import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class ParallelTest {
 	public WebDriver driver;
 	@Parameters({"bname"})
   @Test
-  public void crossBrowserTest(String bname) throws MalformedURLException, InterruptedException
+  public void crossBrowserTest(String bname)
  {
-		System.out.println("Remote driver connectivity is started!");
 	if(bname.equals("Chrome"))
 	{
-		ChromeOptions options=new ChromeOptions();
-		driver=new RemoteWebDriver(new URL("http://localhost:4444"),options);
-		System.out.println("Session created on Chrome!");
+		driver=new ChromeDriver();
 	}else if(bname.equals("Firefox"))
 	{
-		FirefoxOptions options=new FirefoxOptions();
-		driver=new RemoteWebDriver(new URL("http://localhost:4444"),options);
-		System.out.println("Session created on Firefox!");
+	driver=new FirefoxDriver();	
+		
 	}else if(bname.equals("Edge")) {
-		EdgeOptions options=new EdgeOptions();
-		driver=new RemoteWebDriver(new URL("http://localhost:4444"),options);	
-		System.out.println("Session created on Edge!");
+	driver=new EdgeDriver();	
 		
 	}
-	System.out.println("Remote driver connectivity is completed!");
-	Thread.sleep(20000);
 	driver.get("http://www.amazon.in");
-	Thread.sleep(6000);
 	System.out.println("Title is:"+driver.getTitle());
-	
-	driver.quit();
   }
 }
